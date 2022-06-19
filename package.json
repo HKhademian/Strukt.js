@@ -1,15 +1,19 @@
 {
   "name": "struktjs",
   "displayName": "Strukt.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Strukt.js is a simple, fast, and powerful JavaScript library for handling memory layout like c-struct.",
   "keywords": ["struct", "wasm", "strukt", "memory", "layout"],
   "author": "Hossain Khademian",
   "license": "MIT",
   "readme": "README.md",
+  "main": "index.mjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HKhademian/Strukt.js"
+    "url": "https://github.com/HKhademian/Strukt.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HKhademian/Strukt.js/issues"
   },
   "devDependencies": {
     "typescript": "^4.7.4"

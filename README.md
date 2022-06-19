@@ -15,6 +15,16 @@ Because of that, it can handle unaligned layouts and endianess.
 You can define memory layout (like C-struct) to define how a byte-array data must be read from or wrote to.
 
 ```typescript
+// Deno
+import {Strukt} from "https://github.com/HKhademian/Strukt.js/raw/main/index.mjs";
+
+// NodeJS esm (mjs file):
+import {Strukt} from "struktjs/index.mjs";
+
+// NodeJS commonjs: 
+/* NOT POSSIBLE */ const {Strukt} = require("struktjs/index.mjs");*/
+
+
 const Ball = new Strukt('Ball', {
   'id' : 'size', // default to U64 , but you can use size16 and size32
   'posx': 'float',
