@@ -1,5 +1,7 @@
 # Strukt.js
 
+![a simple example of C/JS struct declaration](/media/banner-nobg.png)
+
 I write this project to help myself explore WASM pottentials.
 \
 Most of the time when you deal with wasm memory, You want to read a complex data like a C++ class or a simple c struct.
