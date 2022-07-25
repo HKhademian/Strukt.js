@@ -166,7 +166,7 @@ export class Strukt<S extends Schema> {
         const count = isArray?type[1]:1;
         const [size, num, getter, _] = getFieldTypeData(type) as [number, NumConst, DVGetter, DVSetter];
         
-        const data = [];
+        const data : any[] = [];
         for(let i=0; i<count; ++i) {
           data.push(num(getter.call(view, offset, littleEndian)));
           offset += size;

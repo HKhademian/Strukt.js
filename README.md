@@ -16,13 +16,18 @@ You can define memory layout (like C-struct) to define how a byte-array data mus
 
 ```typescript
 // Deno
-import {Strukt} from "https://github.com/HKhademian/Strukt.js/raw/main/index.mjs";
+import {Strukt} from "https://cdn.jsdelivr.net/npm/struktjs@latest/strukt.ts";
+// or
+import {Strukt} from "https://github.com/HKhademian/Strukt.js/raw/main/strukt.ts";
 
-// NodeJS esm (mjs file):
-import {Strukt} from "struktjs/index.mjs";
+// Bun
+import {Strukt} from "struktjs/strukt.ts";
+
+// NodeJS esm module:
+import {Strukt} from "struktjs";
 
 // NodeJS commonjs: 
-/* NOT POSSIBLE */ const {Strukt} = require("struktjs/index.mjs");*/
+/* NOT POSSIBLE */ const {Strukt} = require("struktjs/index.mjs");
 
 
 const Ball = new Strukt('Ball', {
