@@ -134,7 +134,13 @@ export class Strukt<S extends Schema> {
   offsetOf(fieldName: FieldNames<S>): number {
     if(!this.innerschema.has(fieldName))
       return console.assert(false, 'field not found'), undefined as any;
-    return console.assert(false, 'not implemented'), 0;
+    let offset = 0;
+    for(let [k, v] of this.innerschema) {
+      if(k === fieldName)
+        return offset;
+      offset += getFieldTypeSize(v);
+    }
+    return console.assert(false, 'field not found'), undefined as any;
   }
 
   write(record: RecordOfSchema<S>, littleEndian?:boolean): ArrayBuffer {
@@ -156,7 +162,12 @@ export class Strukt<S extends Schema> {
     return buf;
   }
 
-  readFrom(buf: ArrayBuffer, offset=0, count=null, littleEndian?:boolean): RecordOfSchema<S> /*| RecordOfSchema<S>[]*/ {
+  readOneFrom(buf: ArrayBuffer, offset=0, littleEndian?:boolean): RecordOfSchema<S> {
+    const result = this.readAllFrom(buf, offset, 1, littleEndian);
+    return result[0]; // TODO: check if array is empty is required or not
+  }
+
+  readAllFrom(buf: ArrayBuffer, offset=0, count=1, littleEndian?:boolean): RecordOfSchema<S>[] {
     const view = new DataView(buf);
     const result: any[] = [];
     for(let c=0; c<(count??1); ++c) {
@@ -176,7 +187,7 @@ export class Strukt<S extends Schema> {
       }
       result.push(record);
     }
-    return count==null?result[0]:result; 
+    return result; 
   }
 }
 
